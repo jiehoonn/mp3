@@ -1,0 +1,115 @@
+/* Calculator Styles */
+
+.calculator {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--calculator-padding-desktop);
+  margin: 25px 0;
+}
+
+.calculator h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+.calculator-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.calculator-input h3 {
+  grid-column: 1 / -1;
+  margin-bottom: 15px;
+}
+
+.calculator-input label {
+  font-family: var(--font-family);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  font-size: var(--calculator-label-font-size);
+}
+
+.calculator-input input {
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  font-family: var(--font-family);
+  font-size: var(--calculator-input-font-size);
+  color: var(--text-primary);
+}
+
+.calculator-input button {
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-family: var(--font-family);
+  font-size: var(--calculator-input-font-size);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calculator-input button:hover {
+  opacity: 0.8;
+}
+
+.calculator-output {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.calculator-output h4 {
+  font-family: var(--font-family);
+  font-size: var(--calculator-output-font-size);
+  color: var(--text-primary);
+  min-height: 30px;
+}
+
+/* Tablet styles (max-width: 980px) */
+@media screen and (max-width: 980px) {
+  .calculator-input {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-input label {
+    font-size: 16px;
+  }
+
+  .calculator-input input {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .calculator-input button {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
+
+/* Mobile styles (max-width: 645px) */
+@media screen and (max-width: 645px) {
+  .calculator {
+    padding: var(--calculator-padding-mobile);
+    margin: 15px 0;
+  }
+
+  .calculator-input button {
+    font-size: 16px;
+  }
+
+  .calculator-output h4 {
+    font-size: 20px;
+  }
+}

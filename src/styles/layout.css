@@ -1,0 +1,156 @@
+/* Layout Styles */
+
+/* Header */
+.header {
+  width: 100%;
+}
+
+header {
+  padding: var(--header-padding);
+}
+
+header h1,
+header p {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+}
+
+/* Navigation */
+.navigation {
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+}
+
+nav ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+nav li {
+  padding: var(--nav-padding-desktop);
+}
+
+nav a {
+  text-decoration: none;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.content {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  padding: var(--content-padding);
+}
+
+.content h2 {
+  margin-bottom: var(--content-margin-bottom);
+}
+
+.content img {
+  margin-bottom: var(--content-margin-bottom);
+}
+
+main h2,
+main h3,
+main p,
+main a {
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+main h3 {
+  margin-top: 25px;
+}
+
+main h2 + h3 {
+  margin-top: 0;
+}
+
+main br {
+  display: block;
+  margin: 10px 0;
+  content: "";
+}
+
+main ul li,
+main ol li {
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+/* Contact page - ordered list without numbers */
+main ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Two-column layout (Home page) */
+.content-left {
+  width: 30%;
+  float: left;
+}
+
+.content-right {
+  width: 70%;
+  float: right;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+footer p {
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-weight: bold;
+}
+
+/* Tablet styles (max-width: 980px) */
+@media screen and (max-width: 980px) {
+  header {
+    text-align: center;
+  }
+
+  .navigation {
+    width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  nav li {
+    padding: var(--nav-padding-mobile);
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+
+/* Mobile styles (max-width: 645px) */
+@media screen and (max-width: 645px) {
+  nav a {
+    font-size: var(--nav-font-size-mobile);
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+    float: none;
+  }
+}

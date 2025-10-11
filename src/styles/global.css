@@ -1,0 +1,69 @@
+/* Global CSS Reset and Variables */
+
+:root {
+  /* Colors */
+  --bg-primary: #EFF2F9;
+  --text-primary: #6E7F8D;
+  --border-color: #6E7F8D;
+  --button-bg: #6E7F8D;
+  --button-text: white;
+  --error-color: red;
+
+  /* Typography */
+  --font-family: Helvetica, Arial, sans-serif;
+  --nav-font-size-mobile: calc(3vw);
+  --calculator-label-font-size: 14px;
+  --calculator-input-font-size: 16px;
+  --calculator-output-font-size: 24px;
+
+  /* Spacing */
+  --header-padding: 10px;
+  --nav-padding-desktop: 20px;
+  --nav-padding-mobile: 5px;
+  --content-padding: 20px;
+  --content-margin-bottom: 15px;
+  --calculator-padding-desktop: 25px;
+  --calculator-padding-mobile: 15px;
+
+  /* Border Radius */
+  --radius-lg: 30px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 980px;
+  --breakpoint-mobile: 645px;
+}
+
+/* Universal Reset */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  font-family: var(--font-family);
+  color: var(--text-primary);
+}
+
+#root {
+  background-color: var(--bg-primary);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, p, a, li {
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+a {
+  color: var(--text-primary);
+}
+
+/* Images */
+img {
+  border-radius: var(--radius-lg);
+  max-width: 100%;
+  padding: 5px;
+}
