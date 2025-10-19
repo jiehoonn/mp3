@@ -1,46 +1,72 @@
 import { useState } from 'react';
 import '../styles/calculator.css';
 
-export default function Calculator() {
+type Operation = '+' | '-' | '*' | '**' | '/';
+
+// Custom hook to handle calculator logic
+function useCalculator() {
   const [firstNumber, setFirstNumber] = useState<string>('');
   const [secondNumber, setSecondNumber] = useState<string>('');
   const [result, setResult] = useState<string>('');
 
-  const addition = () => {
-    const sum = Number(firstNumber) + Number(secondNumber);
-    setResult(sum.toString());
-  };
+  const calculate = (operation: Operation) => {
+    const num1 = Number(firstNumber);
+    const num2 = Number(secondNumber);
+    let calculationResult: number;
 
-  const subtract = () => {
-    const difference = Number(firstNumber) - Number(secondNumber);
-    setResult(difference.toString());
-  };
-
-  const multiply = () => {
-    const product = Number(firstNumber) * Number(secondNumber);
-    setResult(product.toString());
-  };
-
-  const power = () => {
-    const base = Number(firstNumber);
-    const exponent = Number(secondNumber);
-    let powerResult = 1;
-    for (let i = 0; i < exponent; i++) {
-      powerResult = powerResult * base;
+    switch (operation) {
+      case '+':
+        calculationResult = num1 + num2;
+        break;
+      case '-':
+        calculationResult = num1 - num2;
+        break;
+      case '*':
+        calculationResult = num1 * num2;
+        break;
+      case '**': {
+        let powerResult = 1;
+        for (let i = 0; i < num2; i++) {
+          powerResult = powerResult * num1;
+        }
+        calculationResult = powerResult;
+        break;
+      }
+      case '/':
+        calculationResult = num1 / num2;
+        break;
     }
-    setResult(powerResult.toString());
+
+    setResult(calculationResult.toString());
   };
 
-  const divide = () => {
-    const quotient = Number(firstNumber) / Number(secondNumber);
-    setResult(quotient.toString());
-  };
-
-  const clearCalculator = () => {
+  const clear = () => {
     setFirstNumber('');
     setSecondNumber('');
     setResult('');
   };
+
+  return {
+    firstNumber,
+    setFirstNumber,
+    secondNumber,
+    setSecondNumber,
+    result,
+    calculate,
+    clear
+  };
+}
+
+export default function Calculator() {
+  const {
+    firstNumber,
+    setFirstNumber,
+    secondNumber,
+    setSecondNumber,
+    result,
+    calculate,
+    clear
+  } = useCalculator();
 
   return (
     <div className="calculator">
@@ -60,12 +86,12 @@ export default function Calculator() {
           value={secondNumber}
           onChange={(e) => setSecondNumber(e.target.value)}
         />
-        <button onClick={addition}>+</button>
-        <button onClick={subtract}>-</button>
-        <button onClick={multiply}>*</button>
-        <button onClick={power}>**</button>
-        <button onClick={divide}>/</button>
-        <button onClick={clearCalculator}>Clear</button>
+        <button onClick={() => calculate('+')}>+</button>
+        <button onClick={() => calculate('-')}>-</button>
+        <button onClick={() => calculate('*')}>*</button>
+        <button onClick={() => calculate('**')}>**</button>
+        <button onClick={() => calculate('/')}>/</button>
+        <button onClick={clear}>Clear</button>
       </div>
       <div className="calculator-output">
         <h4
